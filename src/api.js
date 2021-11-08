@@ -15,21 +15,13 @@ const unwrap = (str) => {
 	return temp.length == 1 ? false : temp[1];
 };
 
-const str2bin = (str) =>
-	str
-		.split("")
-		.map((char) => char.charCodeAt(0).toString(2))
-		.join(" ");
+const str2bin = (str) => str.split("").map((char) => char.charCodeAt(0).toString(2)).join(" ");
 
-const bin2str = (bin) =>
-	bin
-		.split("")
-		.map((char) => String.fromCharCode(parseInt(char, 2)))
-		.join("");
+const bin2str = (bin) => bin.split(" ").map((char) => String.fromCharCode(parseInt(char, 2))).join("");
 
 const bin2hidden = (str) => {
 	for (const [char, zeroWidth] of Object.entries(HIDDEN_MAPPINGS)) {
-		str = str.replace(char, zeroWidth);
+		str = str.replaceAll(char, zeroWidth);
 	}
 
 	return str;
@@ -37,7 +29,7 @@ const bin2hidden = (str) => {
 
 const hidden2bin = (str) => {
 	for (const [char, zeroWidth] of Object.entries(HIDDEN_MAPPINGS)) {
-		str = str.replace(zeroWidth, char);
+		str = str.replaceAll(zeroWidth, char);
 	}
 
 	return str;
