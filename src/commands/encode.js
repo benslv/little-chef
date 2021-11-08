@@ -1,6 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 
-const { encode } = require("../api.js");
+const { encode } = require("steganographr");
 
 module.exports = {
 	data: new SlashCommandBuilder()
